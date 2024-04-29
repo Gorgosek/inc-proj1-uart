@@ -36,11 +36,7 @@ begin
         if rising_edge(CLK) then
             if RST = '1' then
                 state <= IDLE;
-                RX_EN <= '0';
-                CNT_WAIT_EN <= '0';
-                CNT_DATA_EN <= '0';
-                IS_VALID <= '0';
-            elsif RST = '0' then
+            else
                 case state is
                     when IDLE => if DIN='0' then 
                         state <= SLEEP_UNTIL_DATA;

@@ -65,8 +65,8 @@ begin
                 elsif rx_en = '0' then
                     cnt_data <= "0000";
                 end if;
-            end if;
-        end if;
-    end process;
+
+
+                
 
 end behavioral;

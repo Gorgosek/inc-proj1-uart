@@ -36,46 +36,27 @@ begin
         if rising_edge(CLK) then
             if RST = '1' then
                 state <= IDLE;
-                RX_EN <= '0';
-                CNT_WAIT_EN <= '0';
-                CNT_DATA_EN <= '0';
-                IS_VALID <= '0';
-            elsif RST = '0' then
+            else
                 case state is
                     when IDLE => if DIN='0' then 
                         state <= SLEEP_UNTIL_DATA;
                         RX_EN <= '0';
-                        CNT_WAIT_EN <= '1';
+                        CNT_WAIT_EN <= '0';
                         CNT_DATA_EN <= '0';
                         IS_VALID <= '0';
+                        
                     end if;
                     when SLEEP_UNTIL_DATA => if CNT_WAIT='11000' then 
                         state <= RECEIVE_DATA;
-                        RX_EN <= '0';
-                        CNT_WAIT_EN <= '1';
-                        CNT_DATA_EN <= '0';
-                        IS_VALID <= '0';
                     end if;
                     when RECEIVE_DATA => if CNT_DATA='1000' then 
                         state <= SLEEP_UNTIL_STOP;
-                        RX_EN <= '1';
-                        CNT_WAIT_EN <= '1';
-                        CNT_DATA_EN <= '1';
-                        IS_VALID <= '0';
                     end if;
                     when SLEEP_UNTIL_STOP => if CNT_WAIT='10000' then 
                         state <= END_SETVALID;
-                        RX_EN <= '0';
-                        CNT_WAIT_EN <= '1';
-                        CNT_DATA_EN <= '0';
-                        IS_VALID <= '0';
                     end if;
                     when END_SETVALID => if DIN='1' then 
                         state <= IDLE;
-                        RX_EN <= '0';
-                        CNT_WAIT_EN <= '0';
-                        CNT_DATA_EN <= '0';
-                        IS_VALID <= '1';
                     end if;
                     when others => null;
                 end case;

@@ -44,29 +44,19 @@ begin
         IS_VALID => is_valid
     );
 
-    DOUT_VLD <= is_valid;
+    DOUT_VLD <= IS_VALID;
     process (CLK) begin 
         if rising_edge(CLK) then
             if RST='1' then
-                cnt_wait <= "00000";
-                cnt_data <= "0000";
-                DOUT <= (others => '0');
+                CNT_WAIT <= "00000";
+                CNT_DATA <= "0000";
             else
-                if cnt_wait_en = '1' then
-                    cnt_wait <= cnt_wait + 1;
-                elsif cnt_wait_en='0' then
-                    cnt_wait <= "00000"
+                if CNT_WAIT_EN = '1' then
+                    CNT_WAIT <= CNT_WAIT + 1;
+                else if CNT_WAIT_EN='0' then
+                    CNT_WAIT <= "00000"
                 end if;
 
-                if rx_en = '1' and cnt_wait(4)='1' then
-                    DOUT(to_integer(unsigned(cnt_data))) <= DIN;
-                    cnt_data <= cnt_data + 1;
-                    cnt_wait <= "00001";
-                elsif rx_en = '0' then
-                    cnt_data <= "0000";
-                end if;
-            end if;
-        end if;
-    end process;
+                if CNT_DATA_EN='1'
 
 end behavioral;

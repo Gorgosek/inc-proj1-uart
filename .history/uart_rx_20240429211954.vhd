@@ -58,15 +58,9 @@ begin
                     cnt_wait <= "00000"
                 end if;
 
-                if rx_en = '1' and cnt_wait(4)='1' then
-                    DOUT(to_integer(unsigned(cnt_data))) <= DIN;
+                if cnt_data_en = '1' then
+                    -- if cnt_wait(4) 
                     cnt_data <= cnt_data + 1;
-                    cnt_wait <= "00001";
-                elsif rx_en = '0' then
-                    cnt_data <= "0000";
                 end if;
-            end if;
-        end if;
-    end process;
 
 end behavioral;

@@ -62,11 +62,9 @@ begin
                     DOUT(to_integer(unsigned(cnt_data))) <= DIN;
                     cnt_data <= cnt_data + 1;
                     cnt_wait <= "00001";
-                elsif rx_en = '0' then
-                    cnt_data <= "0000";
+
                 end if;
-            end if;
-        end if;
-    end process;
+
+                
 
 end behavioral;
