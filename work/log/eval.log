@@ -1,17 +1,5 @@
 Synthesis seems OK.
 
 Simulation test1 performed, diff with expected results:
-1,13d0
-< 00000000
-< 11111111
-< 00000001
-< 10000000
-< 10000001
-< 01000010
-< 00100100
-< 00011000
-< 10101010
-< 01010101
-< 11110000
-< 00111100
-< 00001111
+
+Simulation test2 skipped.

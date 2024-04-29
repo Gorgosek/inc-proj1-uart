@@ -55,9 +55,6 @@ begin
                 cnt_data <= "0000";
                 DOUT <= (others => '0');
             else
-                if is_valid = '1' then
-                    cnt_data <= "0000";
-                end if;
                 if cnt_wait_en = '1' then
                     cnt_wait <= cnt_wait + 1;
                 else
@@ -65,18 +62,9 @@ begin
                 end if;
 
                 if rx_en = '1' and cnt_wait(4)='1' then
-                    if first = '1' and cnt_wait(3)='1' then
                         DOUT(to_integer(unsigned(cnt_data))) <= DIN;
                         cnt_data <= cnt_data + 1;
-                        cnt_wait <= "00000";
-                        first <= '0';
-                    elsif first = '0' then   
-                        DOUT(to_integer(unsigned(cnt_data))) <= DIN;
-                        cnt_data <= cnt_data + 1;
-                        cnt_wait <= "00000";
-                    else
-                        -- don't do anything
-                    end if;
+                        cnt_wait <= "00001";
                 elsif rx_en = '0' then
                     cnt_data <= "0000";
                 end if;

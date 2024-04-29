@@ -18,7 +18,7 @@ entity UART_RX_FSM is
        CNT_DATA : in std_logic_vector(3 downto 0);
        CNT_DATA_EN : out std_logic;
        RX_EN : out std_logic;
-       IS_VALID : out std_logic;
+       IS_VALID : out std_logic
     );
 end entity;
 
