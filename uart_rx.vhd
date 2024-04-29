@@ -29,6 +29,7 @@ architecture behavioral of UART_RX is
     signal cnt_data_en : std_logic;
     signal rx_en : std_logic;
     signal is_valid : std_logic;
+    signal first : std_logic;
 
 begin
 
@@ -54,16 +55,28 @@ begin
                 cnt_data <= "0000";
                 DOUT <= (others => '0');
             else
+                if is_valid = '1' then
+                    cnt_data <= "0000";
+                end if;
                 if cnt_wait_en = '1' then
                     cnt_wait <= cnt_wait + 1;
-                elsif cnt_wait_en='0' then
+                else
                     cnt_wait <= "00000";
                 end if;
 
                 if rx_en = '1' and cnt_wait(4)='1' then
-                    DOUT(to_integer(unsigned(cnt_data))) <= DIN;
-                    cnt_data <= cnt_data + 1;
-                    cnt_wait <= "00001";
+                    if first = '1' and cnt_wait(3)='1' then
+                        DOUT(to_integer(unsigned(cnt_data))) <= DIN;
+                        cnt_data <= cnt_data + 1;
+                        cnt_wait <= "00000";
+                        first <= '0';
+                    elsif first = '0' then   
+                        DOUT(to_integer(unsigned(cnt_data))) <= DIN;
+                        cnt_data <= cnt_data + 1;
+                        cnt_wait <= "00000";
+                    else
+                        -- don't do anything
+                    end if;
                 elsif rx_en = '0' then
                     cnt_data <= "0000";
                 end if;

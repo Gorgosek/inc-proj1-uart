@@ -30,7 +30,7 @@ architecture behavioral of UART_RX_FSM is
 begin
     RX_EN <= '1' when state=RECEIVE_DATA else '0';
     CNT_DATA_EN <= '1' when state=RECEIVE_DATA else '0';
-    CNT_WAIT_EN <= '1' when state=IDLE or state=SLEEP_UNTIL_DATA or state=RECEIVE_DATA or state= SLEEP_UNTIL_STOP else '0';
+    CNT_WAIT_EN <= '1' when state=SLEEP_UNTIL_DATA or state=RECEIVE_DATA or state= SLEEP_UNTIL_STOP else '0';
     IS_VALID <= '1' when state=END_SETVALID else '0';
     process (CLK) begin
         if rising_edge(CLK) then

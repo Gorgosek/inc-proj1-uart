@@ -30,126 +30,120 @@ end entity uart_rx_fsm;
 
 architecture rtl of uart_rx_fsm is
   signal state : std_logic_vector (2 downto 0);
-  signal n85_o : std_logic;
-  signal n86_o : std_logic;
-  signal n90_o : std_logic;
-  signal n91_o : std_logic;
-  signal n95_o : std_logic;
-  signal n97_o : std_logic;
-  signal n98_o : std_logic;
-  signal n100_o : std_logic;
-  signal n101_o : std_logic;
-  signal n103_o : std_logic;
-  signal n104_o : std_logic;
-  signal n105_o : std_logic;
-  signal n109_o : std_logic;
-  signal n110_o : std_logic;
-  signal n114_o : std_logic;
-  signal n115_o : std_logic;
-  signal n116_o : std_logic;
-  signal n118_o : std_logic_vector (2 downto 0);
-  signal n120_o : std_logic;
-  signal n122_o : std_logic;
-  signal n124_o : std_logic_vector (2 downto 0);
-  signal n126_o : std_logic;
-  signal n128_o : std_logic;
-  signal n130_o : std_logic_vector (2 downto 0);
-  signal n132_o : std_logic;
-  signal n134_o : std_logic;
-  signal n136_o : std_logic_vector (2 downto 0);
-  signal n138_o : std_logic;
-  signal n140_o : std_logic_vector (2 downto 0);
   signal n142_o : std_logic;
-  signal n143_o : std_logic_vector (4 downto 0);
-  signal n144_o : std_logic_vector (2 downto 0);
-  signal n145_o : std_logic_vector (2 downto 0);
-  signal n147_o : std_logic_vector (2 downto 0);
-  signal n150_q : std_logic_vector (2 downto 0) := "000";
+  signal n143_o : std_logic;
+  signal n147_o : std_logic;
+  signal n148_o : std_logic;
+  signal n152_o : std_logic;
+  signal n154_o : std_logic;
+  signal n155_o : std_logic;
+  signal n157_o : std_logic;
+  signal n158_o : std_logic;
+  signal n159_o : std_logic;
+  signal n163_o : std_logic;
+  signal n164_o : std_logic;
+  signal n168_o : std_logic;
+  signal n169_o : std_logic;
+  signal n170_o : std_logic;
+  signal n172_o : std_logic_vector (2 downto 0);
+  signal n174_o : std_logic;
+  signal n176_o : std_logic;
+  signal n178_o : std_logic_vector (2 downto 0);
+  signal n180_o : std_logic;
+  signal n182_o : std_logic;
+  signal n184_o : std_logic_vector (2 downto 0);
+  signal n186_o : std_logic;
+  signal n188_o : std_logic;
+  signal n190_o : std_logic_vector (2 downto 0);
+  signal n192_o : std_logic;
+  signal n194_o : std_logic_vector (2 downto 0);
+  signal n196_o : std_logic;
+  signal n197_o : std_logic_vector (4 downto 0);
+  signal n198_o : std_logic_vector (2 downto 0);
+  signal n199_o : std_logic_vector (2 downto 0);
+  signal n201_o : std_logic_vector (2 downto 0);
+  signal n204_q : std_logic_vector (2 downto 0) := "000";
 begin
-  cnt_wait_en <= n105_o;
-  cnt_data_en <= n91_o;
-  rx_en <= n86_o;
-  is_valid <= n110_o;
+  cnt_wait_en <= n159_o;
+  cnt_data_en <= n148_o;
+  rx_en <= n143_o;
+  is_valid <= n164_o;
   -- work/uart_rx_fsm.vhd:29:12
-  state <= n150_q; -- (isignal)
+  state <= n204_q; -- (isignal)
   -- work/uart_rx_fsm.vhd:31:28
-  n85_o <= '1' when state = "010" else '0';
+  n142_o <= '1' when state = "010" else '0';
   -- work/uart_rx_fsm.vhd:31:18
-  n86_o <= '0' when n85_o = '0' else '1';
+  n143_o <= '0' when n142_o = '0' else '1';
   -- work/uart_rx_fsm.vhd:32:34
-  n90_o <= '1' when state = "010" else '0';
+  n147_o <= '1' when state = "010" else '0';
   -- work/uart_rx_fsm.vhd:32:24
-  n91_o <= '0' when n90_o = '0' else '1';
+  n148_o <= '0' when n147_o = '0' else '1';
   -- work/uart_rx_fsm.vhd:33:34
-  n95_o <= '1' when state = "000" else '0';
-  -- work/uart_rx_fsm.vhd:33:48
-  n97_o <= '1' when state = "001" else '0';
-  -- work/uart_rx_fsm.vhd:33:40
-  n98_o <= n95_o or n97_o;
+  n152_o <= '1' when state = "001" else '0';
+  -- work/uart_rx_fsm.vhd:33:60
+  n154_o <= '1' when state = "010" else '0';
+  -- work/uart_rx_fsm.vhd:33:52
+  n155_o <= n152_o or n154_o;
+  -- work/uart_rx_fsm.vhd:33:82
+  n157_o <= '1' when state = "011" else '0';
   -- work/uart_rx_fsm.vhd:33:74
-  n100_o <= '1' when state = "010" else '0';
-  -- work/uart_rx_fsm.vhd:33:66
-  n101_o <= n98_o or n100_o;
-  -- work/uart_rx_fsm.vhd:33:96
-  n103_o <= '1' when state = "011" else '0';
-  -- work/uart_rx_fsm.vhd:33:88
-  n104_o <= n101_o or n103_o;
+  n158_o <= n155_o or n157_o;
   -- work/uart_rx_fsm.vhd:33:24
-  n105_o <= '0' when n104_o = '0' else '1';
+  n159_o <= '0' when n158_o = '0' else '1';
   -- work/uart_rx_fsm.vhd:34:31
-  n109_o <= '1' when state = "100" else '0';
+  n163_o <= '1' when state = "100" else '0';
   -- work/uart_rx_fsm.vhd:34:21
-  n110_o <= '0' when n109_o = '0' else '1';
+  n164_o <= '0' when n163_o = '0' else '1';
   -- work/uart_rx_fsm.vhd:36:12
-  n114_o <= '1' when rising_edge (clk) else '0';
+  n168_o <= '1' when rising_edge (clk) else '0';
   -- work/uart_rx_fsm.vhd:39:23
-  n115_o <= not rst;
+  n169_o <= not rst;
   -- work/uart_rx_fsm.vhd:41:40
-  n116_o <= not din;
+  n170_o <= not din;
   -- work/uart_rx_fsm.vhd:41:34
-  n118_o <= state when n116_o = '0' else "001";
+  n172_o <= state when n170_o = '0' else "001";
   -- work/uart_rx_fsm.vhd:41:21
-  n120_o <= '1' when state = "000" else '0';
+  n174_o <= '1' when state = "000" else '0';
   -- work/uart_rx_fsm.vhd:44:57
-  n122_o <= '1' when cnt_wait = "11000" else '0';
+  n176_o <= '1' when cnt_wait = "11000" else '0';
   -- work/uart_rx_fsm.vhd:44:46
-  n124_o <= state when n122_o = '0' else "010";
+  n178_o <= state when n176_o = '0' else "010";
   -- work/uart_rx_fsm.vhd:44:21
-  n126_o <= '1' when state = "001" else '0';
+  n180_o <= '1' when state = "001" else '0';
   -- work/uart_rx_fsm.vhd:47:53
-  n128_o <= '1' when cnt_data = "1000" else '0';
+  n182_o <= '1' when cnt_data = "1000" else '0';
   -- work/uart_rx_fsm.vhd:47:42
-  n130_o <= state when n128_o = '0' else "011";
+  n184_o <= state when n182_o = '0' else "011";
   -- work/uart_rx_fsm.vhd:47:21
-  n132_o <= '1' when state = "010" else '0';
+  n186_o <= '1' when state = "010" else '0';
   -- work/uart_rx_fsm.vhd:50:57
-  n134_o <= '1' when cnt_wait = "10000" else '0';
+  n188_o <= '1' when cnt_wait = "10000" else '0';
   -- work/uart_rx_fsm.vhd:50:46
-  n136_o <= state when n134_o = '0' else "100";
+  n190_o <= state when n188_o = '0' else "100";
   -- work/uart_rx_fsm.vhd:50:21
-  n138_o <= '1' when state = "011" else '0';
+  n192_o <= '1' when state = "011" else '0';
   -- work/uart_rx_fsm.vhd:53:42
-  n140_o <= state when din = '0' else "000";
+  n194_o <= state when din = '0' else "000";
   -- work/uart_rx_fsm.vhd:53:21
-  n142_o <= '1' when state = "100" else '0';
-  n143_o <= n142_o & n138_o & n132_o & n126_o & n120_o;
+  n196_o <= '1' when state = "100" else '0';
+  n197_o <= n196_o & n192_o & n186_o & n180_o & n174_o;
   -- work/uart_rx_fsm.vhd:40:17
-  with n143_o select n144_o <=
-    n140_o when "10000",
-    n136_o when "01000",
-    n130_o when "00100",
-    n124_o when "00010",
-    n118_o when "00001",
+  with n197_o select n198_o <=
+    n194_o when "10000",
+    n190_o when "01000",
+    n184_o when "00100",
+    n178_o when "00010",
+    n172_o when "00001",
     state when others;
   -- work/uart_rx_fsm.vhd:39:13
-  n145_o <= state when n115_o = '0' else n144_o;
+  n199_o <= state when n169_o = '0' else n198_o;
   -- work/uart_rx_fsm.vhd:37:13
-  n147_o <= n145_o when rst = '0' else "000";
+  n201_o <= n199_o when rst = '0' else "000";
   -- work/uart_rx_fsm.vhd:36:9
   process (clk)
   begin
     if rising_edge (clk) then
-      n150_q <= n147_o;
+      n204_q <= n201_o;
     end if;
   end process;
 end rtl;
@@ -171,52 +165,45 @@ architecture rtl of uart_rx is
   signal cnt_data : std_logic_vector (3 downto 0);
   signal rx_en : std_logic;
   signal is_valid : std_logic;
+  signal first : std_logic;
   signal fsm_cnt_wait_en : std_logic;
   signal fsm_cnt_data_en : std_logic;
   signal fsm_rx_en : std_logic;
   signal fsm_is_valid : std_logic;
   signal n8_o : std_logic;
-  signal n10_o : std_logic_vector (4 downto 0);
-  signal n11_o : std_logic;
-  signal n13_o : std_logic_vector (4 downto 0);
+  signal n10_o : std_logic_vector (3 downto 0);
+  signal n12_o : std_logic_vector (4 downto 0);
   signal n14_o : std_logic_vector (4 downto 0);
   signal n15_o : std_logic;
   signal n16_o : std_logic;
-  signal n18_o : std_logic_vector (2 downto 0);
-  signal n22_o : std_logic_vector (3 downto 0);
-  signal n23_o : std_logic;
-  signal n25_o : std_logic_vector (3 downto 0);
-  signal n26_o : std_logic_vector (7 downto 0);
-  signal n28_o : std_logic_vector (4 downto 0);
-  signal n29_o : std_logic_vector (3 downto 0);
-  signal n31_o : std_logic_vector (7 downto 0);
-  signal n33_o : std_logic_vector (4 downto 0);
+  signal n17_o : std_logic;
+  signal n18_o : std_logic;
+  signal n20_o : std_logic_vector (2 downto 0);
+  signal n24_o : std_logic_vector (3 downto 0);
+  signal n25_o : std_logic;
+  signal n27_o : std_logic_vector (2 downto 0);
+  signal n31_o : std_logic_vector (3 downto 0);
+  signal n32_o : std_logic_vector (7 downto 0);
+  signal n34_o : std_logic_vector (4 downto 0);
   signal n35_o : std_logic_vector (3 downto 0);
-  signal n40_q : std_logic_vector (7 downto 0);
-  signal n41_q : std_logic_vector (4 downto 0);
-  signal n42_q : std_logic_vector (3 downto 0);
-  signal n43_o : std_logic;
-  signal n44_o : std_logic;
-  signal n45_o : std_logic;
-  signal n46_o : std_logic;
-  signal n47_o : std_logic;
+  signal n36_o : std_logic_vector (7 downto 0);
+  signal n38_o : std_logic_vector (4 downto 0);
+  signal n39_o : std_logic_vector (3 downto 0);
+  signal n41_o : std_logic;
+  signal n42_o : std_logic;
+  signal n44_o : std_logic_vector (3 downto 0);
+  signal n45_o : std_logic_vector (7 downto 0);
+  signal n46_o : std_logic_vector (4 downto 0);
+  signal n47_o : std_logic_vector (3 downto 0);
   signal n48_o : std_logic;
-  signal n49_o : std_logic;
-  signal n50_o : std_logic;
-  signal n51_o : std_logic;
-  signal n52_o : std_logic;
-  signal n53_o : std_logic;
-  signal n54_o : std_logic;
+  signal n50_o : std_logic_vector (7 downto 0);
+  signal n52_o : std_logic_vector (4 downto 0);
+  signal n54_o : std_logic_vector (3 downto 0);
   signal n55_o : std_logic;
-  signal n56_o : std_logic;
-  signal n57_o : std_logic;
-  signal n58_o : std_logic;
-  signal n59_o : std_logic;
-  signal n60_o : std_logic;
-  signal n61_o : std_logic;
-  signal n62_o : std_logic;
-  signal n63_o : std_logic;
-  signal n64_o : std_logic;
+  signal n61_q : std_logic_vector (7 downto 0);
+  signal n62_q : std_logic_vector (4 downto 0);
+  signal n63_q : std_logic_vector (3 downto 0);
+  signal n64_q : std_logic;
   signal n65_o : std_logic;
   signal n66_o : std_logic;
   signal n67_o : std_logic;
@@ -229,26 +216,85 @@ architecture rtl of uart_rx is
   signal n74_o : std_logic;
   signal n75_o : std_logic;
   signal n76_o : std_logic;
-  signal n77_o : std_logic_vector (7 downto 0);
+  signal n77_o : std_logic;
+  signal n78_o : std_logic;
+  signal n79_o : std_logic;
+  signal n80_o : std_logic;
+  signal n81_o : std_logic;
+  signal n82_o : std_logic;
+  signal n83_o : std_logic;
+  signal n84_o : std_logic;
+  signal n85_o : std_logic;
+  signal n86_o : std_logic;
+  signal n87_o : std_logic;
+  signal n88_o : std_logic;
+  signal n89_o : std_logic;
+  signal n90_o : std_logic;
+  signal n91_o : std_logic;
+  signal n92_o : std_logic;
+  signal n93_o : std_logic;
+  signal n94_o : std_logic;
+  signal n95_o : std_logic;
+  signal n96_o : std_logic;
+  signal n97_o : std_logic;
+  signal n98_o : std_logic;
+  signal n99_o : std_logic_vector (7 downto 0);
+  signal n100_o : std_logic;
+  signal n101_o : std_logic;
+  signal n102_o : std_logic;
+  signal n103_o : std_logic;
+  signal n104_o : std_logic;
+  signal n105_o : std_logic;
+  signal n106_o : std_logic;
+  signal n107_o : std_logic;
+  signal n108_o : std_logic;
+  signal n109_o : std_logic;
+  signal n110_o : std_logic;
+  signal n111_o : std_logic;
+  signal n112_o : std_logic;
+  signal n113_o : std_logic;
+  signal n114_o : std_logic;
+  signal n115_o : std_logic;
+  signal n116_o : std_logic;
+  signal n117_o : std_logic;
+  signal n118_o : std_logic;
+  signal n119_o : std_logic;
+  signal n120_o : std_logic;
+  signal n121_o : std_logic;
+  signal n122_o : std_logic;
+  signal n123_o : std_logic;
+  signal n124_o : std_logic;
+  signal n125_o : std_logic;
+  signal n126_o : std_logic;
+  signal n127_o : std_logic;
+  signal n128_o : std_logic;
+  signal n129_o : std_logic;
+  signal n130_o : std_logic;
+  signal n131_o : std_logic;
+  signal n132_o : std_logic;
+  signal n133_o : std_logic;
+  signal n134_o : std_logic_vector (7 downto 0);
 begin
   wrap_clk <= clk;
   wrap_rst <= rst;
   wrap_din <= din;
   dout <= wrap_dout;
   dout_vld <= wrap_dout_vld;
-  wrap_DOUT <= n40_q;
+  wrap_DOUT <= n61_q;
   wrap_DOUT_VLD <= is_valid;
   -- work/uart_rx.vhd:26:12
-  cnt_wait <= n41_q; -- (signal)
+  cnt_wait <= n62_q; -- (signal)
   -- work/uart_rx.vhd:27:12
   cnt_wait_en <= fsm_cnt_wait_en; -- (signal)
   -- work/uart_rx.vhd:28:12
-  cnt_data <= n42_q; -- (signal)
+  cnt_data <= n63_q; -- (signal)
   -- work/uart_rx.vhd:30:12
   rx_en <= fsm_rx_en; -- (signal)
   -- work/uart_rx.vhd:31:12
   is_valid <= fsm_is_valid; -- (signal)
-  -- work/uart_rx.vhd:36:5
+  -- work/uart_rx.vhd:32:12
+  first <= n64_q; -- (signal)
+  -- work/uart_rx.vhd:37:5
   fsm : entity work.uart_rx_fsm port map (
     clk => wrap_CLK,
     rst => wrap_RST,
@@ -259,120 +305,214 @@ begin
     cnt_data_en => open,
     rx_en => fsm_rx_en,
     is_valid => fsm_is_valid);
-  -- work/uart_rx.vhd:51:12
+  -- work/uart_rx.vhd:52:12
   n8_o <= '1' when rising_edge (wrap_CLK) else '0';
-  -- work/uart_rx.vhd:58:42
-  n10_o <= std_logic_vector (unsigned (cnt_wait) + unsigned'("00001"));
-  -- work/uart_rx.vhd:59:34
-  n11_o <= not cnt_wait_en;
-  -- work/uart_rx.vhd:59:17
-  n13_o <= cnt_wait when n11_o = '0' else "00000";
-  -- work/uart_rx.vhd:57:17
-  n14_o <= n13_o when cnt_wait_en = '0' else n10_o;
-  -- work/uart_rx.vhd:63:44
+  -- work/uart_rx.vhd:58:17
+  n10_o <= cnt_data when is_valid = '0' else "0000";
+  -- work/uart_rx.vhd:62:42
+  n12_o <= std_logic_vector (unsigned (cnt_wait) + unsigned'("00001"));
+  -- work/uart_rx.vhd:61:17
+  n14_o <= "00000" when cnt_wait_en = '0' else n12_o;
+  -- work/uart_rx.vhd:67:44
   n15_o <= cnt_wait (4);
-  -- work/uart_rx.vhd:63:32
+  -- work/uart_rx.vhd:67:32
   n16_o <= rx_en and n15_o;
-  -- work/uart_rx.vhd:64:25
-  n18_o <= cnt_data (2 downto 0);  --  trunc
-  -- work/uart_rx.vhd:65:42
-  n22_o <= std_logic_vector (unsigned (cnt_data) + unsigned'("0001"));
-  -- work/uart_rx.vhd:67:29
-  n23_o <= not rx_en;
+  -- work/uart_rx.vhd:68:48
+  n17_o <= cnt_wait (3);
+  -- work/uart_rx.vhd:68:36
+  n18_o <= first and n17_o;
+  -- work/uart_rx.vhd:69:29
+  n20_o <= cnt_data (2 downto 0);  --  trunc
+  -- work/uart_rx.vhd:70:46
+  n24_o <= std_logic_vector (unsigned (cnt_data) + unsigned'("0001"));
+  -- work/uart_rx.vhd:73:33
+  n25_o <= not first;
+  -- work/uart_rx.vhd:74:29
+  n27_o <= cnt_data (2 downto 0);  --  trunc
+  -- work/uart_rx.vhd:75:46
+  n31_o <= std_logic_vector (unsigned (cnt_data) + unsigned'("0001"));
+  -- work/uart_rx.vhd:73:21
+  n32_o <= n61_q when n25_o = '0' else n134_o;
+  -- work/uart_rx.vhd:73:21
+  n34_o <= n14_o when n25_o = '0' else "00000";
+  -- work/uart_rx.vhd:73:21
+  n35_o <= n10_o when n25_o = '0' else n31_o;
+  -- work/uart_rx.vhd:68:21
+  n36_o <= n32_o when n18_o = '0' else n99_o;
+  -- work/uart_rx.vhd:68:21
+  n38_o <= n34_o when n18_o = '0' else "00000";
+  -- work/uart_rx.vhd:68:21
+  n39_o <= n35_o when n18_o = '0' else n24_o;
   -- work/uart_rx.vhd:67:17
-  n25_o <= cnt_data when n23_o = '0' else "0000";
-  -- work/uart_rx.vhd:63:17
-  n26_o <= n40_q when n16_o = '0' else n77_o;
-  -- work/uart_rx.vhd:63:17
-  n28_o <= n14_o when n16_o = '0' else "00001";
-  -- work/uart_rx.vhd:63:17
-  n29_o <= n25_o when n16_o = '0' else n22_o;
-  -- work/uart_rx.vhd:52:13
-  n31_o <= n26_o when wrap_RST = '0' else "00000000";
-  -- work/uart_rx.vhd:52:13
-  n33_o <= n28_o when wrap_RST = '0' else "00000";
-  -- work/uart_rx.vhd:52:13
-  n35_o <= n29_o when wrap_RST = '0' else "0000";
-  -- work/uart_rx.vhd:51:9
+  n41_o <= first when n48_o = '0' else '0';
+  -- work/uart_rx.vhd:80:29
+  n42_o <= not rx_en;
+  -- work/uart_rx.vhd:80:17
+  n44_o <= n10_o when n42_o = '0' else "0000";
+  -- work/uart_rx.vhd:67:17
+  n45_o <= n61_q when n16_o = '0' else n36_o;
+  -- work/uart_rx.vhd:67:17
+  n46_o <= n14_o when n16_o = '0' else n38_o;
+  -- work/uart_rx.vhd:67:17
+  n47_o <= n44_o when n16_o = '0' else n39_o;
+  -- work/uart_rx.vhd:67:17
+  n48_o <= n16_o and n18_o;
+  -- work/uart_rx.vhd:53:13
+  n50_o <= n45_o when wrap_RST = '0' else "00000000";
+  -- work/uart_rx.vhd:53:13
+  n52_o <= n46_o when wrap_RST = '0' else "00000";
+  -- work/uart_rx.vhd:53:13
+  n54_o <= n47_o when wrap_RST = '0' else "0000";
+  -- work/uart_rx.vhd:53:13
+  n55_o <= n41_o when wrap_RST = '0' else first;
+  -- work/uart_rx.vhd:52:9
   process (wrap_CLK)
   begin
     if rising_edge (wrap_CLK) then
-      n40_q <= n31_o;
+      n61_q <= n50_o;
     end if;
   end process;
-  -- work/uart_rx.vhd:51:9
+  -- work/uart_rx.vhd:52:9
   process (wrap_CLK)
   begin
     if rising_edge (wrap_CLK) then
-      n41_q <= n33_o;
+      n62_q <= n52_o;
     end if;
   end process;
-  -- work/uart_rx.vhd:51:9
+  -- work/uart_rx.vhd:52:9
   process (wrap_CLK)
   begin
     if rising_edge (wrap_CLK) then
-      n42_q <= n35_o;
+      n63_q <= n54_o;
     end if;
   end process;
-  -- work/uart_rx.vhd:64:21
-  n43_o <= n18_o (2);
-  -- work/uart_rx.vhd:64:21
-  n44_o <= not n43_o;
-  -- work/uart_rx.vhd:64:21
-  n45_o <= n18_o (1);
-  -- work/uart_rx.vhd:64:21
-  n46_o <= not n45_o;
-  -- work/uart_rx.vhd:64:21
-  n47_o <= n44_o and n46_o;
-  -- work/uart_rx.vhd:64:21
-  n48_o <= n44_o and n45_o;
-  -- work/uart_rx.vhd:64:21
-  n49_o <= n43_o and n46_o;
-  -- work/uart_rx.vhd:64:21
-  n50_o <= n43_o and n45_o;
-  -- work/uart_rx.vhd:64:21
-  n51_o <= n18_o (0);
-  -- work/uart_rx.vhd:64:21
-  n52_o <= not n51_o;
-  -- work/uart_rx.vhd:64:21
-  n53_o <= n47_o and n52_o;
-  -- work/uart_rx.vhd:64:21
-  n54_o <= n47_o and n51_o;
-  -- work/uart_rx.vhd:64:21
-  n55_o <= n48_o and n52_o;
-  -- work/uart_rx.vhd:64:21
-  n56_o <= n48_o and n51_o;
-  -- work/uart_rx.vhd:64:21
-  n57_o <= n49_o and n52_o;
-  -- work/uart_rx.vhd:64:21
-  n58_o <= n49_o and n51_o;
-  -- work/uart_rx.vhd:64:21
-  n59_o <= n50_o and n52_o;
-  -- work/uart_rx.vhd:64:21
-  n60_o <= n50_o and n51_o;
-  n61_o <= n40_q (0);
-  -- work/uart_rx.vhd:64:21
-  n62_o <= n61_o when n53_o = '0' else wrap_DIN;
-  n63_o <= n40_q (1);
-  -- work/uart_rx.vhd:64:21
-  n64_o <= n63_o when n54_o = '0' else wrap_DIN;
-  n65_o <= n40_q (2);
-  -- work/uart_rx.vhd:64:21
-  n66_o <= n65_o when n55_o = '0' else wrap_DIN;
-  n67_o <= n40_q (3);
-  -- work/uart_rx.vhd:64:21
-  n68_o <= n67_o when n56_o = '0' else wrap_DIN;
-  n69_o <= n40_q (4);
-  -- work/uart_rx.vhd:64:21
-  n70_o <= n69_o when n57_o = '0' else wrap_DIN;
-  n71_o <= n40_q (5);
-  -- work/uart_rx.vhd:64:21
-  n72_o <= n71_o when n58_o = '0' else wrap_DIN;
-  n73_o <= n40_q (6);
-  -- work/uart_rx.vhd:64:21
-  n74_o <= n73_o when n59_o = '0' else wrap_DIN;
-  n75_o <= n40_q (7);
-  -- work/uart_rx.vhd:64:21
-  n76_o <= n75_o when n60_o = '0' else wrap_DIN;
-  n77_o <= n76_o & n74_o & n72_o & n70_o & n68_o & n66_o & n64_o & n62_o;
+  -- work/uart_rx.vhd:52:9
+  process (wrap_CLK)
+  begin
+    if rising_edge (wrap_CLK) then
+      n64_q <= n55_o;
+    end if;
+  end process;
+  -- work/uart_rx.vhd:69:25
+  n65_o <= n20_o (2);
+  -- work/uart_rx.vhd:69:25
+  n66_o <= not n65_o;
+  -- work/uart_rx.vhd:69:25
+  n67_o <= n20_o (1);
+  -- work/uart_rx.vhd:69:25
+  n68_o <= not n67_o;
+  -- work/uart_rx.vhd:69:25
+  n69_o <= n66_o and n68_o;
+  -- work/uart_rx.vhd:69:25
+  n70_o <= n66_o and n67_o;
+  -- work/uart_rx.vhd:69:25
+  n71_o <= n65_o and n68_o;
+  -- work/uart_rx.vhd:69:25
+  n72_o <= n65_o and n67_o;
+  -- work/uart_rx.vhd:69:25
+  n73_o <= n20_o (0);
+  -- work/uart_rx.vhd:69:25
+  n74_o <= not n73_o;
+  -- work/uart_rx.vhd:69:25
+  n75_o <= n69_o and n74_o;
+  -- work/uart_rx.vhd:69:25
+  n76_o <= n69_o and n73_o;
+  -- work/uart_rx.vhd:69:25
+  n77_o <= n70_o and n74_o;
+  -- work/uart_rx.vhd:69:25
+  n78_o <= n70_o and n73_o;
+  -- work/uart_rx.vhd:69:25
+  n79_o <= n71_o and n74_o;
+  -- work/uart_rx.vhd:69:25
+  n80_o <= n71_o and n73_o;
+  -- work/uart_rx.vhd:69:25
+  n81_o <= n72_o and n74_o;
+  -- work/uart_rx.vhd:69:25
+  n82_o <= n72_o and n73_o;
+  n83_o <= n61_q (0);
+  -- work/uart_rx.vhd:69:25
+  n84_o <= n83_o when n75_o = '0' else wrap_DIN;
+  n85_o <= n61_q (1);
+  -- work/uart_rx.vhd:69:25
+  n86_o <= n85_o when n76_o = '0' else wrap_DIN;
+  n87_o <= n61_q (2);
+  -- work/uart_rx.vhd:69:25
+  n88_o <= n87_o when n77_o = '0' else wrap_DIN;
+  n89_o <= n61_q (3);
+  -- work/uart_rx.vhd:69:25
+  n90_o <= n89_o when n78_o = '0' else wrap_DIN;
+  n91_o <= n61_q (4);
+  -- work/uart_rx.vhd:69:25
+  n92_o <= n91_o when n79_o = '0' else wrap_DIN;
+  n93_o <= n61_q (5);
+  -- work/uart_rx.vhd:69:25
+  n94_o <= n93_o when n80_o = '0' else wrap_DIN;
+  n95_o <= n61_q (6);
+  -- work/uart_rx.vhd:69:25
+  n96_o <= n95_o when n81_o = '0' else wrap_DIN;
+  n97_o <= n61_q (7);
+  -- work/uart_rx.vhd:69:25
+  n98_o <= n97_o when n82_o = '0' else wrap_DIN;
+  n99_o <= n98_o & n96_o & n94_o & n92_o & n90_o & n88_o & n86_o & n84_o;
+  -- work/uart_rx.vhd:74:25
+  n100_o <= n27_o (2);
+  -- work/uart_rx.vhd:74:25
+  n101_o <= not n100_o;
+  -- work/uart_rx.vhd:74:25
+  n102_o <= n27_o (1);
+  -- work/uart_rx.vhd:74:25
+  n103_o <= not n102_o;
+  -- work/uart_rx.vhd:74:25
+  n104_o <= n101_o and n103_o;
+  -- work/uart_rx.vhd:74:25
+  n105_o <= n101_o and n102_o;
+  -- work/uart_rx.vhd:74:25
+  n106_o <= n100_o and n103_o;
+  -- work/uart_rx.vhd:74:25
+  n107_o <= n100_o and n102_o;
+  -- work/uart_rx.vhd:74:25
+  n108_o <= n27_o (0);
+  -- work/uart_rx.vhd:74:25
+  n109_o <= not n108_o;
+  -- work/uart_rx.vhd:74:25
+  n110_o <= n104_o and n109_o;
+  -- work/uart_rx.vhd:74:25
+  n111_o <= n104_o and n108_o;
+  -- work/uart_rx.vhd:74:25
+  n112_o <= n105_o and n109_o;
+  -- work/uart_rx.vhd:74:25
+  n113_o <= n105_o and n108_o;
+  -- work/uart_rx.vhd:74:25
+  n114_o <= n106_o and n109_o;
+  -- work/uart_rx.vhd:74:25
+  n115_o <= n106_o and n108_o;
+  -- work/uart_rx.vhd:74:25
+  n116_o <= n107_o and n109_o;
+  -- work/uart_rx.vhd:74:25
+  n117_o <= n107_o and n108_o;
+  n118_o <= n61_q (0);
+  -- work/uart_rx.vhd:74:25
+  n119_o <= n118_o when n110_o = '0' else wrap_DIN;
+  n120_o <= n61_q (1);
+  -- work/uart_rx.vhd:74:25
+  n121_o <= n120_o when n111_o = '0' else wrap_DIN;
+  n122_o <= n61_q (2);
+  -- work/uart_rx.vhd:74:25
+  n123_o <= n122_o when n112_o = '0' else wrap_DIN;
+  n124_o <= n61_q (3);
+  -- work/uart_rx.vhd:74:25
+  n125_o <= n124_o when n113_o = '0' else wrap_DIN;
+  n126_o <= n61_q (4);
+  -- work/uart_rx.vhd:74:25
+  n127_o <= n126_o when n114_o = '0' else wrap_DIN;
+  n128_o <= n61_q (5);
+  -- work/uart_rx.vhd:74:25
+  n129_o <= n128_o when n115_o = '0' else wrap_DIN;
+  n130_o <= n61_q (6);
+  -- work/uart_rx.vhd:74:25
+  n131_o <= n130_o when n116_o = '0' else wrap_DIN;
+  n132_o <= n61_q (7);
+  -- work/uart_rx.vhd:74:25
+  n133_o <= n132_o when n117_o = '0' else wrap_DIN;
+  n134_o <= n133_o & n131_o & n129_o & n127_o & n125_o & n123_o & n121_o & n119_o;
 end rtl;
